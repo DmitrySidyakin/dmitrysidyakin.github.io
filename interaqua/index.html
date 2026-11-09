@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Инъекционная гидроизоляция, материалы и усиление конструкций. ИПЦ «ИнтерАква» — разработчик, производитель и подрядчик с 1992 года. Кремль, Храм Христа Спасителя, Москвариум.">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>ИнтерАква</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Russo+One&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: инженерный лендинг — узкая колонка 1200px, разрез стены как главный образ, данные набраны моно-шрифтом как в техкарте */
+:root{
+  --ink:#0A1319;        /* фон — мокрый бетон в темноте */
+  --deep:#0F1D26;       /* поверхность секций */
+  --panel:#132430;      /* карточки */
+  --line:#223845;       /* линии, рамки */
+  --fg:#E3EBEE;         /* основной текст */
+  --muted:#8DA1AB;      /* второстепенный текст */
+  --gel:#3CC8B8;        /* аква-акцент: вода и инъекционный гель */
+  --gel-dim:rgba(60,200,184,.16);
+  --glass:rgba(10,19,25,.8);      /* карточки поверх видео */
+  --glass-2:rgba(15,29,38,.78);   /* полосы секций поверх видео */
+  --water:#3C7DA6;      /* грунтовая вода в схемах */
+  --concrete:#8E8A82;   /* бетон в схемах */
+  --soil:#3A3226;       /* грунт в схемах */
+  --f-display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --f-body:"Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-brand:"Russo One", "Arial Black", system-ui, sans-serif;
+  --brand-blue:#7C9BFF; /* светлый оттенок синего из логотипа */
+  --f-mono:"JetBrains Mono", ui-monospace, "Consolas", monospace;
+  --wrap:1200px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--ink);color:var(--fg);font:16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(26px,3.6vw,40px)}
+h3{font-size:18px;font-weight:500;line-height:1.3}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gel);display:flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gel)}
+.lead{color:var(--muted);font-size:18px;max-width:62ch}
+.mono{font-family:var(--f-mono)}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:18px;margin-bottom:48px;max-width:780px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:4px;font:600 15px/1 var(--f-body);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn-gel{background:var(--gel);color:#06201D}
+.btn-gel:hover{background:#7FE0D4}
+.btn-line{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-line:hover{border-color:var(--gel);color:var(--gel)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--gel);outline-offset:3px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,19,25,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.logo-mark{height:40px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.logo b{font:400 19px/1.05 var(--f-brand);display:block;letter-spacing:.02em}
+.logo b i{font-style:normal;color:var(--gel)}
+.logo small{font:400 11px/1.2 var(--f-mono);color:var(--muted);letter-spacing:.04em}
+.nav{display:flex;gap:clamp(14px,1.5vw,24px);margin-left:auto}
+.nav a{white-space:nowrap;text-decoration:none;font:400 12px/1 var(--f-brand);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--fg)}
+.top-phone{font:500 15px/1 var(--f-mono);text-decoration:none;white-space:nowrap}
+.top .btn{min-height:42px;padding:0 18px;font-size:14px}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--fg);border-radius:4px;height:42px;padding:0 14px;font:500 14px var(--f-body);cursor:pointer}
+@media (max-width:1400px) and (min-width:1241px){.logo small{display:none}}
+@media (max-width:1240px){.nav{display:none}.top-phone{margin-left:auto}}
+@media (max-width:640px){.top-phone,.top .btn{display:none}.menu-btn{display:block}
+  .nav.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--deep);border-bottom:1px solid var(--line);padding:8px clamp(16px,4vw,40px) 16px}
+  .nav.open a{padding:12px 0;font-size:16px;color:var(--fg);border-bottom:1px solid var(--line)}
+  .nav .nav-extra{display:block}
+}
+.nav .nav-extra{display:none}
+@media (max-width:420px){.logo small{display:none}.top .wrap{gap:12px}}
+
+/* hero */
+.hero{padding-block:clamp(40px,8vw,120px) clamp(56px,7vw,96px);position:relative}
+.hero-copy{background:linear-gradient(90deg,transparent,rgba(8,16,22,.55) 18%);padding:clamp(0px,2vw,28px);border-radius:6px}
+.hero-drop{min-height:1px}
+.hero-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);align-items:center;position:relative}
+.hero-copy{display:grid;gap:26px;min-width:0}
+.hero h1{font-size:clamp(26px,3.5vw,48px)}
+.hero h1 em{font-style:normal;color:var(--gel)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{font-size:14px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:clamp(40px,6vw,72px);position:relative}
+.fact{padding:22px 20px 0 0;display:grid;gap:6px}
+.fact + .fact{padding-left:20px;border-left:1px solid var(--line)}
+.fact b{font:600 clamp(24px,2.8vw,34px)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.fact b small{font-size:.5em;font-weight:500;color:var(--muted);margin-left:4px}
+.fact span{font-size:14px;color:var(--muted)}
+.fig{position:relative;min-width:0;margin:0}
+.fig.glass{background:var(--glass);border:1px solid var(--line);border-radius:4px;padding:18px}
+.tech-left{display:grid;gap:28px;min-width:0}
+.fig svg{width:100%;height:auto;display:block}
+.fig figcaption{font:400 12px/1.5 var(--f-mono);color:var(--muted);margin-top:10px;letter-spacing:.02em}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-drop{min-height:34vh}.hero-copy{background:rgba(8,16,22,.55);padding:20px}.facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line);margin-top:22px}}
+
+/* problem strip */
+.strip{background:var(--glass-2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-block:1px solid var(--line);padding-block:40px}
+.strip .wrap{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.strip q{font:500 clamp(18px,2.2vw,24px)/1.35 var(--f-display);quotes:none;max-width:40ch}
+.strip p{color:var(--muted);max-width:60ch}
+@media (max-width:760px){.strip .wrap{grid-template-columns:1fr;gap:14px}}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--glass);padding:28px 26px 30px;display:grid;gap:12px;align-content:start;text-decoration:none;transition:background .25s}
+.svc:hover{background:var(--panel)}
+.svc-ico{width:44px;height:44px;color:var(--gel)}
+.svc p{color:var(--muted);font-size:15px}
+.svc .tag{font:400 12px/1 var(--f-mono);color:var(--gel);letter-spacing:.04em;margin-top:4px}
+@media (max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+/* technology */
+.tech{background:var(--glass-2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-block:1px solid var(--line)}
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line);counter-increment:s}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:500 13px/1.6 var(--f-mono);color:var(--gel);padding-top:2px}
+.steps h3{margin-bottom:6px}
+.steps p{color:var(--muted);font-size:15px}
+.spec{border:1px solid var(--line);background:var(--ink);border-radius:4px;overflow:hidden}
+.spec-head{display:flex;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.spec table{width:100%;border-collapse:collapse;font-size:15px}
+.spec td{padding:14px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+.spec tr:last-child td{border-bottom:0}
+.spec td:last-child{text-align:right;font-family:var(--f-mono);color:var(--gel);white-space:nowrap;font-variant-numeric:tabular-nums}
+.spec td:first-child{color:var(--fg)}
+.spec td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px;border-radius:4px;overflow:hidden}
+.vs > div{background:var(--ink);padding:20px;display:grid;gap:10px;align-content:start}
+.vs h4{margin:0;font:500 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vs .ours h4{color:var(--gel)}
+.vs ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px}
+.vs li{padding-left:18px;position:relative}
+.vs li::before{content:"–";position:absolute;left:0;color:var(--muted)}
+.vs .ours li::before{content:"+";color:var(--gel)}
+@media (max-width:900px){.tech-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.vs{grid-template-columns:1fr}}
+
+/* objects */
+.obj-feature{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.obj{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--glass);display:flex;flex-direction:column}
+.obj-img{aspect-ratio:16/10;max-width:100%;position:relative;background:var(--panel);border-bottom:1px solid var(--line)}
+.obj-img svg{position:absolute;inset:0;width:100%;height:100%}
+.obj-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.obj:hover .obj-img img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.obj:hover .obj-img img{transform:none}}
+.obj-img .ph{position:absolute;left:14px;bottom:12px;font:400 11px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.obj-body{padding:20px 22px 24px;display:grid;gap:8px}
+.obj-type{font:400 12px/1 var(--f-mono);color:var(--gel);letter-spacing:.06em;text-transform:uppercase}
+.obj-body p{color:var(--muted);font-size:14px}
+@media (max-width:900px){.obj-feature{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.obj-feature{grid-template-columns:1fr}}
+.obj-list-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.obj-list-head h3{font-size:16px}
+.obj-list-head span{font:400 13px var(--f-mono);color:var(--muted)}
+.obj-list{background:var(--glass);padding:0 16px;columns:3 280px;column-gap:40px;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.obj-list li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--line);display:grid;gap:2px;font-size:15px}
+.obj-list li span{color:var(--muted);font-size:13px}
+
+/* process */
+.proc{background:var(--glass);padding:0 20px 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);list-style:none;margin:0;padding:0;counter-reset:p}
+.proc li{padding:26px 22px 0 0;display:grid;gap:10px;align-content:start;position:relative;counter-increment:p}
+.proc li + li{padding-left:22px;border-left:1px solid var(--line)}
+.proc li::before{content:counter(p);font:600 30px/1 var(--f-display);color:var(--gel)}
+.proc p{color:var(--muted);font-size:14px}
+.proc .free{font:500 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#06201D;background:var(--gel);padding:5px 7px;border-radius:2px;justify-self:start}
+@media (max-width:980px){.proc{grid-template-columns:1fr 1fr}.proc li{padding:22px 16px 22px 0;border-left:0!important;padding-left:0!important;border-bottom:1px solid var(--line)}}
+@media (max-width:520px){.proc{grid-template-columns:1fr}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px)}
+.faq details{border-top:1px solid var(--line);background:var(--glass);padding:0 18px}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font:500 17px/1.4 var(--f-body);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font:400 24px/1 var(--f-mono);color:var(--gel);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 22px;max-width:64ch}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--glass-2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.contact-grid > *{min-width:0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.cinfo{display:grid;gap:28px}
+.cinfo dl{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.cinfo dl > div{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.cinfo dt{font:400 12px/1.3 var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.cinfo dd{margin:0;font-size:16px;min-width:0;overflow-wrap:anywhere}
+.cinfo dd.mono{font-size:17px}
+.copy{background:none;border:1px solid var(--line);color:var(--muted);font:400 12px var(--f-mono);padding:6px 10px;border-radius:3px;cursor:pointer}
+.copy:hover{color:var(--gel);border-color:var(--gel)}
+@media (max-width:480px){.cinfo dl > div{grid-template-columns:1fr auto}.cinfo dt{grid-column:1/-1}}
+form.req{background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:clamp(22px,3vw,34px);display:grid;gap:18px}
+form.req h3{font-size:20px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.field{display:grid;gap:7px;min-width:0}
+.field label{font:400 12px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.field input,.field select,.field textarea{width:100%;background:var(--deep);border:1px solid var(--line);border-radius:3px;color:var(--fg);font:400 16px/1.4 var(--f-body);padding:13px 14px}
+.field textarea{min-height:104px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gel);outline:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.chips input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none;margin:0}
+.chips label{font:400 14px/1 var(--f-body);text-transform:none;letter-spacing:0;color:var(--fg);border:1px solid var(--line);border-radius:40px;padding:10px 14px;cursor:pointer;transition:all .2s}
+.chips input:checked + label{background:var(--gel-dim);border-color:var(--gel);color:var(--gel)}
+.chips input:focus-visible + label{outline:2px solid var(--gel);outline-offset:2px}
+.consent{font-size:13px;color:var(--muted)}
+.form-ok{border:1px solid var(--gel);background:var(--gel-dim);color:var(--fg);padding:14px 16px;border-radius:3px;font-size:14px}
+.err{color:#F2A58E;font-size:13px}
+
+footer{position:relative;z-index:1;background:var(--ink);border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+/* фон: видео-заставка, раскадрованная по скроллу */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:#0d1a22 url(frames/f000.webp) 25% 50%/cover no-repeat}
+.bg canvas{width:100%;height:100%;display:block}
+.bg .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,22,0) 0%,rgba(8,16,22,.08) 40%,rgba(8,16,22,.3) 100%)}
+.bg .shade2{position:absolute;inset:0;background:rgba(8,16,22,1);opacity:0}
+main{position:relative;z-index:1}
+.tech-slide{margin:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--ink)}
+.tech-slide img{display:block;width:100%;height:auto}
+/* читаемость поверх светлого фона */
+.facts{background:rgba(10,19,25,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:0 20px 22px;border-radius:4px}
+.sec-head,.obj-list-head{text-shadow:0 2px 16px rgba(5,12,16,.85),0 0 2px rgba(5,12,16,.6)}
+
+/* карточки объектов: срок и объём */
+.obj-meta{display:flex;gap:24px;margin:6px 0 0;padding-top:10px;border-top:1px solid var(--line)}
+.obj-meta div{display:grid;gap:2px}
+.obj-meta dt{font:400 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.obj-meta dd{margin:0;font:500 15px/1.3 var(--f-mono);color:var(--fg);font-variant-numeric:tabular-nums}
+.obj-cta{justify-content:center;gap:14px;padding:28px;text-decoration:none;border:1px dashed var(--gel);background:linear-gradient(160deg,rgba(60,200,184,.16),var(--glass) 60%)}
+.obj-cta h3{font-size:22px;line-height:1.25}
+.obj-cta p{color:var(--muted);font-size:15px}
+.obj-cta .btn{justify-self:start;align-self:flex-start}
+.mats{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;margin-top:24px;padding:16px 22px;background:var(--glass);border:1px solid var(--line);border-radius:4px}
+.mats span{font:400 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.mats b{font:400 18px var(--f-brand);letter-spacing:.03em}
+.clients{margin-top:40px;padding:22px;background:var(--glass);border:1px solid var(--line);border-radius:4px;display:grid;gap:14px}
+.clients span{font:400 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.clients ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.clients li{border:1px solid var(--line);border-radius:40px;padding:8px 16px;font:500 15px var(--f-body)}
+
+/* исправления для мобильных и читаемости над видео */
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.sec-head .lead{color:#CFDCE2}
+.sec-head .lead,.sec-head h2{text-shadow:0 2px 18px rgba(5,12,16,.95),0 0 3px rgba(5,12,16,.8)}
+
+/* gel animation */
+.gel-flow{stroke-dasharray:6 10;animation:flow 2.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.drip{animation:drip 3.2s ease-in infinite}
+@keyframes drip{0%,55%{transform:translateY(0);opacity:1}100%{transform:translateY(46px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.gel-flow,.drip{animation:none}html{scroll-behavior:auto}}
+
+.logo-img{background:#fff;border-radius:6px;padding:4px 10px;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.logo-img img{height:46px;width:auto;display:block}
+@media (max-width:420px){.logo-img img{height:38px}}
+/* InterAqua: материалы, публикации */
+.own{border:1px solid var(--gel);border-radius:4px;background:linear-gradient(160deg,rgba(60,200,184,.12),var(--glass) 55%);margin-bottom:20px}
+.own-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gel)}
+.own-head a{color:var(--fg);text-decoration:none}.own-head a:hover{color:var(--gel)}
+.own-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.own-grid > div{padding:22px;display:grid;gap:8px;align-content:start}
+.own-grid > div + div{border-left:1px solid var(--line)}
+.own-grid b{font:400 19px/1.2 var(--f-brand);letter-spacing:.02em}
+.own-grid p{color:var(--muted);font-size:14px}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.cat{background:var(--glass);padding:24px 22px;display:grid;gap:12px;align-content:start}
+.cat-price{font:500 13px/1 var(--f-mono);color:#06201D;background:var(--gel);padding:6px 8px;border-radius:2px;justify-self:start;font-variant-numeric:tabular-nums}
+.cat ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+.cat li{padding-left:16px;position:relative}.cat li::before{content:"+";position:absolute;left:0;color:var(--gel);font-family:var(--f-mono)}
+.cat-brands{font:400 12px/1.5 var(--f-mono);color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+.cat-note{margin-top:14px;font-size:14px;color:#CFDCE2;text-shadow:0 2px 12px rgba(5,12,16,.9)}
+@media (max-width:980px){.cat-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.own-grid{grid-template-columns:1fr}.own-grid > div + div{border-left:0;border-top:1px solid var(--line)}}
+@media (max-width:520px){.cat-grid{grid-template-columns:1fr}}
+.clients ul.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.arts li{border-radius:4px;padding:14px 16px;display:grid;gap:6px}
+.arts b{font-weight:500}.arts small{font:400 12px var(--f-mono);color:var(--muted)}
+@media (max-width:760px){.clients ul.arts{grid-template-columns:1fr}}
+footer .credit{flex-basis:100%;font-size:12px;opacity:.8}
+</style>
+
+<div class="bg" aria-hidden="true"><canvas id="bgc"></canvas><div class="shade"></div><div class="shade2" id="shade2"></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo logo-img" href="#top" aria-label="ИнтерАква, инженерно-строительный центр — на главную">
+      <img src="logo.webp" width="372" height="128" alt="ИнтерАква — Инженерно-строительный Центр">
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#services">Направления</a>
+      <a href="#tech">Технология</a>
+      <a href="#materials">Материалы</a>
+      <a href="#objects">Объекты</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Контакты</a>
+      <a class="nav-extra" href="tel:+74952232385">(495) 223-23-85</a>
+    </nav>
+    <a class="top-phone" href="tel:+74952232385">(495) 223-23-85</a>
+    <a class="btn btn-gel" href="#contact">Консультация</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Меню</button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-drop" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">Разработчик · производитель · подрядчик</div>
+          <h1>Инъекционная гидроизоляция <em>для Кремля и Храма Христа Спасителя</em></h1>
+          <p class="lead">Останавливаем протечки в швах и трещинах, отсекаем капиллярную влагу, заполняем пустоты и восстанавливаем целостность бетона. Сами разрабатываем решение, выпускаем материалы и выполняем работы.</p>
+          <div class="hero-cta">
+            <a class="btn btn-gel" href="#contact">Получить консультацию</a>
+            <a class="btn btn-line" href="#materials">Каталог материалов</a>
+          </div>
+          <p class="hero-note">Москва, регионы России и страны СНГ. Работаем с объектами культурного наследия.</p>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><b>30+<small>лет</small></b><span>в инъекционных технологиях</span></div>
+        <div class="fact"><b>2000+</b><span>объектов, в том числе памятники архитектуры</span></div>
+        <div class="fact"><b>1992</b><span>год начала работы ИПЦ «ИнтерАква»</span></div>
+        <div class="fact"><b>3<small>в одном</small></b><span>технология, материал и монтаж от одной команды</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <q>Одна команда отвечает за&nbsp;решение, материал и результат</q>
+      <p>Мы разрабатываем технические решения, производим специальные материалы и сами выполняем работы. Сотрудничаем с крупнейшими фирмами России, Европы и Азии, поэтому подбираем систему под объект, а не объект под систему.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Направления</div>
+        <h2>Четыре задачи, которые решает инъектирование</h2>
+        <p class="lead">Плюс защита бетона и ремонт с усилением конструкций — от подвала жилого дома до водоводов ГЭС.</p>
+      </div>
+      <div class="svc-grid">
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="15" height="28"/><rect x="25" y="8" width="15" height="28"/><path d="M22 6v32" stroke-dasharray="2 3"/><path d="M30 18 22 24"/></svg>
+          <h3>Устранение протечек</h3>
+          <p>Инъекция в швы и трещины, а при необходимости — за конструкцию в грунт с созданием противофильтрационной завесы.</p>
+          <span class="tag">технология ниже</span>
+        </a>
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6v32h32"/><path d="M6 30h32" stroke-width="3"/><path d="M14 38v-6M22 38v-6M30 38v-6" stroke-dasharray="2 2"/><path d="M10 22h28" stroke-dasharray="3 3"/></svg>
+          <h3>Отсечка капиллярного подсоса</h3>
+          <p>Горизонтальная отсечная гидроизоляция стен и опор: влага из грунта перестаёт подниматься по кладке.</p>
+        </a>
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h32v28H6z"/><path d="M18 8l4 9-5 6 6 13"/></svg>
+          <h3>Восстановление целостности</h3>
+          <p>Склеивание трещин в несущем бетоне эпоксидными составами, возвращение конструкции монолитности.</p>
+        </a>
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 30h36"/><path d="M8 30V14h28v16"/><ellipse cx="22" cy="36" rx="9" ry="3" stroke-dasharray="3 2"/><path d="M22 30v3"/></svg>
+          <h3>Заполнение пустот</h3>
+          <p>Нагнетание составов в пустоты за обделкой, под плитами и в основании, чтобы вода не находила путь.</p>
+        </a>
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 4 6 10v12c0 9 7 15 16 18 9-3 16-9 16-18V10z"/><path d="M15 22l5 5 9-10"/></svg>
+          <h3>Защита бетона</h3>
+          <p>Проникающие составы, полимерные и цементные мембраны, антикоррозионная защита для портов, бассейнов и кровель.</p>
+        </a>
+        <a class="svc" href="#contact">
+          <svg class="svc-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 6v32M22 6v32M34 6v32"/><path d="M6 14h32M6 30h32" stroke-dasharray="2 3"/></svg>
+          <h3>Ремонт и усиление</h3>
+          <p>Усиление несущих конструкций стадионов, аэропортов и подземных галерей, ремонт гидротехнических сооружений.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="tech" id="tech">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Технология</div>
+        <h2>Как работает инъекционная гидроизоляция</h2>
+        <p class="lead">Откапывать фундамент не нужно. Через пакеры нагнетаем смолу или гель в тело конструкции, и состав перекрывает путь воде изнутри. Так мы остановили протечки в стыках акрилового стекла и бетона в «Москвариуме», не останавливая работу океанариума.</p>
+      </div>
+      <figure class="tech-slide">
+        <img src="tech-injection.webp" srcset="tech-injection-768.webp 768w, tech-injection.webp 1536w" sizes="(max-width:1200px) 100vw, 1120px" width="1536" height="1024" loading="lazy" alt="Инъектирование гидроизоляционной смолы в три этапа: 1 — активная течь по шву, 2 — инъекция через пакеры внутрь конструкции, 3 — заполнение шва полимерной смолой">
+      </figure>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section id="materials">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Материалы</div>
+        <h2>Собственное производство и проверенные системы</h2>
+        <p class="lead">Выпускаем специальные материалы под инъекционные технологии и поставляем системы, с которыми работаем на объектах сами. Склад в Москве.</p>
+      </div>
+
+      <div class="own">
+        <div class="own-head"><span>Разработки ИнтерАква</span><a href="#contact">Запросить техкарту →</a></div>
+        <div class="own-grid">
+          <div><b>ИнтерБлок-575 / 575 М</b><p>Гидрофильная полиуретановая смола для остановки активных протечек в швах и трещинах.</p></div>
+          <div><b>ИНТЕРАКВА ПЛАГ</b><p>Быстротвердеющий состав для мгновенной ликвидации напорных течей.</p></div>
+          <div><b>ИнтерЭпокси WS</b><p>Эпоксидная смола для склеивания трещин и восстановления несущего бетона.</p></div>
+        </div>
+      </div>
+
+      <div class="cat-grid">
+        <div class="cat"><span class="cat-price">от 148 ₽</span><h3>Гидроизоляция</h3><ul><li>Проникающие составы</li><li>Цементные и полимерные мембраны</li><li>Бентонитовые маты и гранулы</li></ul><p class="cat-brands">Ксайпекс · Mariseal · Hydrobloc</p></div>
+        <div class="cat"><span class="cat-price">от 192 ₽</span><h3>Защита бетона</h3><ul><li>Грунтовки и праймеры</li><li>Полиуретановые покрытия</li><li>Защита от коррозии</li></ul><p class="cat-brands">Mariseal Aqua Primer · Maritrans · IC Top</p></div>
+        <div class="cat"><span class="cat-price">от 834 ₽</span><h3>Ремонт и усиление</h3><ul><li>Ремонтные составы</li><li>Эпоксидные смолы</li><li>Материалы для трещин</li></ul><p class="cat-brands">ИнтерЭпокси · Ксайпекс Патч Плаг</p></div>
+        <div class="cat"><span class="cat-price">по запросу</span><h3>Инъекция и швы</h3><ul><li>Инъекционные смолы и гели</li><li>Шланги и оборудование</li><li>Гидрошпонки, набухающие шнуры и пасты</li></ul><p class="cat-brands">ИнтерБлок · Hydrobloc Polygel 530</p></div>
+      </div>
+      <p class="cat-note">Цены «от» указаны по категориям. Точная стоимость зависит от объёма — пришлите список, и торговый дом подготовит счёт.</p>
+    </div>
+  </section>
+
+  <!-- OBJECTS -->
+  <section id="objects" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Объекты</div>
+        <h2>Кремль, храмы, мосты XVIII века и небоскрёбы</h2>
+        <p class="lead">Более 2000 объектов в Москве, регионах России и странах СНГ. Ниже — часть из них.</p>
+      </div>
+
+      <div class="obj-feature">
+        <article class="obj">
+          <div class="obj-img"><img src="obj/xxs.webp" alt="Храм Христа Спасителя в Москве" width="900" height="823" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Подземная часть · комплекс работ</span><h3>Храм Христа Спасителя</h3><p>Гидроизоляция подземной части и многочисленные работы на комплексе храма.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/kremlin.webp" alt="Здание Сената в Московском Кремле" width="900" height="505" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Гидроизоляция · усиление</span><h3>Московский Кремль</h3><p>Здание №1 и другие здания. Гидроизоляция и усиление подземной галереи.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/moskvarium.webp" alt="Океанариум Москвариум на ВДНХ" width="526" height="258" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Устранение протечек</span><h3>«Москвариум», ВДНХ</h3><p>Протечки в стыках акрилового стекла и бетона — гидрофильная ПУ-смола. Эпоксидная инъекция под гидроизоляционное покрытие.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/poklonnaya.webp" alt="Фонтаны на Поклонной горе" width="480" height="240" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Подземные сооружения · фонтаны</span><h3>Поклонная гора</h3><p>Музей Победы, подземные сооружения и фонтаны мемориального комплекса.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/kamenny-most.webp" alt="Каменный мост в Калуге, 1780 год" width="550" height="309" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Отсечная гидроизоляция</span><h3>Каменный мост, Калуга</h3><p>Памятник 1780 года. Отсечная гидроизоляция опор моста.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/evolution.webp" alt="Башня Эволюция в Москва-Сити" width="900" height="601" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Кровля · вертолётная площадка</span><h3>Башня «Эволюция»</h3><p>Гидроизоляция эксплуатируемой кровли и вертолётной площадки.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/moscow-city.webp" alt="Инъектирование за конструкцию на объекте в Москва-Сити" width="316" height="346" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Инъекция за конструкцию</span><h3>Москва-Сити</h3><p>Инъектирование за конструкцию в грунт, усиление несущих конструкций зданий.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/vilyuy.webp" alt="Вилюйская ГЭС" width="900" height="600" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Гидротехника · ремонт</span><h3>Вилюйская ГЭС</h3><p>Ремонт донных водоводов гидроэлектростанции.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/novoport.webp" alt="Новороссийский морской торговый порт" width="900" height="675" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Ремонт · антикоррозия</span><h3>Новороссийский морской порт</h3><p>Ремонт, гидроизоляция и антикоррозионная защита конструкций.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/dalma.webp" alt="Работы в торговом центре Далма Гарден Молл" width="303" height="365" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Восстановление целостности</span><h3>«Далма Гарден Молл», Ереван</h3><p>Склеивание трещин в несущем бетоне эпоксидной смолой.</p></div>
+        </article>
+        <article class="obj">
+          <div class="obj-img"><img src="obj/sklad.webp" alt="Протечки в стыках блоков складского комплекса" width="742" height="557" loading="lazy"></div>
+          <div class="obj-body"><span class="obj-type">Устранение протечек</span><h3>Складской комплекс, МО</h3><p>Инъекция полиуретановой смолы в стыки между фундаментными блоками.</p></div>
+        </article>
+        <a class="obj obj-cta" href="#contact">
+          <h3>Ваш объект — следующий</h3>
+          <p>Пришлите фото протечки или проект. Инженер подберёт технологию и материал.</p>
+          <span class="btn btn-gel">Обсудить объект</span>
+        </a>
+      </div>
+
+      <div class="obj-list-head"><h3>Ещё объекты</h3><span>из 2000+ выполненных</span></div>
+      <ul class="obj-list">
+        <li>Счётная палата РФ<span>гидроизоляция</span></li>
+        <li>Московская городская дума<span>гидроизоляция</span></li>
+        <li>Стадионы ЦСКА и «Локомотив»<span>усиление несущих конструкций</span></li>
+        <li>Аэропорт Домодедово<span>усиление несущих конструкций</span></li>
+        <li>Московский зоопарк<span>бассейны «Полярный мир», «Нерпы» и др.</span></li>
+        <li>ОПЦ «Фуд-Сити»<span>складские помещения</span></li>
+        <li>Береговые насосные станции<span>Пермь, Сургут, Сыктывкар</span></li>
+        <li>Центральный стадион, Минск<span>декоративное штампованное покрытие трибун</span></li>
+        <li>Поклонная гора, Музей Победы<span>подземные сооружения</span></li>
+      </ul>
+
+      <div class="clients">
+        <span>Публикации специалистов · журнал «Точка опоры»</span>
+        <ul class="arts">
+          <li><b>ЭВА в сопряжениях</b><small>Ю. Г. Хаютин, Д. И. Кравченко</small></li>
+          <li><b>Полиуретановые мастики</b><small>Ю. Г. Хаютин, Д. И. Кравченко</small></li>
+          <li><b>Новая технология гидроизоляции деформационных швов</b><small>Ю. Г. Хаютин, Д. И. Кравченко</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Как работаем</div>
+        <h2>От протечки до сухого помещения</h2>
+      </div>
+      <ol class="proc">
+        <li><h3>Заявка</h3><p>Звонок, письмо или форма на сайте. Приложите фото протечки, проект или ТЗ.</p></li>
+        <li><h3>Обследование</h3><p>Инженер изучает объект и определяет, откуда и как идёт вода.</p></li>
+        <li><h3>Решение</h3><p>Разрабатываем технологию и подбираем материал — свой или партнёрский.</p></li>
+        <li><h3>Материалы</h3><p>Поставка со склада в Москве, без посредников.</p></li>
+        <li><h3>Работы и сдача</h3><p>Собственные специалисты выполняют работы и сдают результат по акту.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" style="padding-top:0">
+    <div class="wrap faq-grid">
+      <div class="sec-head" style="margin-bottom:0">
+        <div class="eyebrow">Вопросы</div>
+        <h2>Что спрашивают перед началом работ</h2>
+        <p class="lead">Не нашли ответ? Позвоните: <span class="mono">(495) 223-23-85</span></p>
+      </div>
+      <div>
+        <details open>
+          <summary>Можно остановить течь, не раскапывая фундамент?</summary>
+          <p>Да. Инъекционная гидроизоляция выполняется изнутри помещения: смола или гель нагнетаются через пакеры в шов, трещину или за конструкцию в грунт. Активную напорную течь сначала останавливаем быстротвердеющим составом.</p>
+        </details>
+        <details>
+          <summary>Можно купить только материалы?</summary>
+          <p>Да. Торговый дом ИнтерАква отгружает материалы со склада на ул. Деловой. Пришлите список или опишите задачу — подскажем, какой состав подойдёт, и выставим счёт.</p>
+        </details>
+        <details>
+          <summary>Работаете с памятниками архитектуры?</summary>
+          <p>Да, это одно из наших направлений. Среди объектов — Московский Кремль, Храм Христа Спасителя и Каменный мост в Калуге 1780 года.</p>
+        </details>
+        <details>
+          <summary>Что делать, если сыреют стены первого этажа?</summary>
+          <p>Чаще всего это капиллярный подсос влаги из грунта. Его отсекают горизонтальной инъекционной гидроизоляцией в кладке — без разборки стен.</p>
+        </details>
+        <details>
+          <summary>Выезжаете в регионы?</summary>
+          <p>Да. Работаем в Москве, регионах России и странах СНГ — от насосных станций в Сургуте до ГЭС в Якутии и торгового центра в Ереване.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="cinfo">
+        <div class="sec-head" style="margin-bottom:0">
+          <div class="eyebrow">Контакты</div>
+          <h2>Обсудим ваш объект</h2>
+          <p class="lead">Пришлите фото, проект или список материалов. Ответим в рабочее время: пн–пт, 9:30–18:00.</p>
+        </div>
+        <dl>
+          <div><dt>Телефон</dt><dd class="mono" id="c1">(495) 223-23-85</dd><button class="copy" data-copy="c1" type="button">Копировать</button></div>
+          <div><dt>Почта</dt><dd class="mono" id="c3">interaqua@mail.ru</dd><button class="copy" data-copy="c3" type="button">Копировать</button></div>
+          <div><dt>Торговый дом</dt><dd class="mono" id="c4">tradehouse_interaqua@mail.ru</dd><button class="copy" data-copy="c4" type="button">Копировать</button></div>
+          <div><dt>Офис</dt><dd>Москва, ул. Севанская, д. 5, корп. 1</dd><span></span></div>
+          <div><dt>Склад</dt><dd>Москва, ул. Деловая, д. 11, корп. 2</dd><span></span></div>
+        </dl>
+      </div>
+
+      <form class="req" id="req" novalidate>
+        <h3>Заявка на консультацию</h3>
+        <div class="field">
+          <label>Задача</label>
+          <div class="chips" role="group" aria-label="Тип задачи">
+            <input type="radio" name="kind" id="k1" value="Протечка" checked><label for="k1">Протечка</label>
+            <input type="radio" name="kind" id="k2" value="Капиллярная влага"><label for="k2">Сырые стены</label>
+            <input type="radio" name="kind" id="k3" value="Ремонт и усиление"><label for="k3">Ремонт и усиление</label>
+            <input type="radio" name="kind" id="k4" value="Материалы"><label for="k4">Купить материалы</label>
+            <input type="radio" name="kind" id="k5" value="Другое"><label for="k5">Другое</label>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="fname">Имя и компания</label><input id="fname" name="name" autocomplete="name" placeholder="Как к вам обращаться"></div>
+          <div class="field"><label for="fphone">Телефон</label><input id="fphone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></div>
+        </div>
+        <div class="field"><label for="fmsg">Объект и задача</label><textarea id="fmsg" name="msg" placeholder="Где течёт, тип конструкции, площадь или список материалов"></textarea></div>
+        <div class="field"><label for="ffile">Фото, проект или список</label><input id="ffile" name="file" type="file" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.dwg" multiple></div>
+        <p class="err" id="ferr" hidden>Укажите телефон, чтобы мы могли перезвонить.</p>
+        <button class="btn btn-gel" type="submit">Отправить заявку</button>
+        <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        <p class="form-ok" id="fok" hidden>Прототип: форма проверена, но заявка никуда не отправлена. На рабочем сайте она уйдёт на почту.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 ИПЦ «ИнтерАква». Инъекционная гидроизоляция, материалы, ремонт и усиление</span>
+    <span class="mono">(495) 223-23-85 · interaqua@mail.ru</span>
+    <span class="credit">Фото: interaqua.biz; Храм, Кремль, «Эволюция», Вилюйская ГЭС и порт — Wikimedia Commons (CC BY-SA)</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'Закрыть':'Меню';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&nav.classList.contains('open')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='Меню';}});
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy),t=el.textContent.trim();
+      function done(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Копировать';},1600);}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Выделено';setTimeout(function(){b.textContent='Копировать';},1600);}
+      try{navigator.clipboard.writeText(t).then(done,fallback);}catch(e){fallback();}
+    });
+  });
+
+  var f=document.getElementById('req'),ph=document.getElementById('fphone'),err=document.getElementById('ferr'),ok=document.getElementById('fok');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var digits=ph.value.replace(/\D/g,'');
+    if(digits.length<10){err.hidden=false;ok.hidden=true;ph.focus();return;}
+    err.hidden=true;ok.hidden=false;
+  });
+})();
+/* Фон: 124 кадра заставки, кадр выбирается по прокрутке */
+(function(){
+  var N=124, cv=document.getElementById('bgc'), ctx=cv.getContext('2d'), sh=document.getElementById('shade2');
+  var imgs=new Array(N), loaded=new Array(N), cur=0, target=0, drawn=-1;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function src(i){return 'frames/f'+String(i).padStart(3,'0')+'.webp';}
+  function load(i){if(imgs[i])return;var im=new Image();im.onload=function(){loaded[i]=true;drawn=-1;};im.src=src(i);imgs[i]=im;}
+  load(0);
+  // сначала каждый 8-й кадр, затем остальные: анимация работает ещё до полной загрузки
+  var order=[];[8,4,2,1].forEach(function(st){for(var i=0;i<N;i+=st){if(order.indexOf(i)<0)order.push(i);}});
+  var qi=0;(function next(){var b=6;while(b-- && qi<order.length){load(order[qi++]);}if(qi<order.length)setTimeout(next,50);})();
+  function size(){var d=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(innerWidth*d);cv.height=Math.round(innerHeight*d);drawn=-1;}
+  function nearest(i){for(var k=0;k<N;k++){if(loaded[i-k])return i-k;if(loaded[i+k])return i+k;}return -1;}
+  function draw(i){
+    var j=nearest(i);if(j<0||j===drawn)return;drawn=j;
+    var im=imgs[j],W=cv.width,H=cv.height,iw=im.naturalWidth,ih=im.naturalHeight;
+    var sc=Math.max(W/iw,H/ih),dw=iw*sc,dh=ih*sc;
+    var fx=W/H<1?0.32:0.5; // на телефоне держим каплю в кадре
+    var dx=Math.min(0,Math.max(W-dw,W*.5-dw*fx)),dy=(H-dh)/2;
+    ctx.drawImage(im,dx,dy,dw,dh);
+  }
+  function progress(){return Math.min(1,Math.max(0,scrollY/(innerHeight*2.6)));} // капля разлетается за первые ~2,5 экрана
+  function tick(){
+    target=progress()*(N-1);
+    cur+=(target-cur)*0.18; if(Math.abs(target-cur)<.05)cur=target;
+    draw(Math.round(cur));
+    var y=scrollY/innerHeight; sh.style.opacity=Math.min(.15,Math.max(0,(y-2.2)*.12)).toFixed(3);
+    requestAnimationFrame(tick);
+  }
+  addEventListener('resize',size);size();
+  if(reduce){load(N-1);setInterval(function(){draw(N-1);},300);}
+  else requestAnimationFrame(tick);
+})();
+
+</script>
+</body>
+</html>
